@@ -1,0 +1,17 @@
+{
+  "name": "fresh-energy",
+  "version": "0.0.0",
+  "main": "index.js",
+  "author": "Jan Buschtöns <jan@buschtoens.me> (https://buschtoens.me/)",
+  "repository": "buschtoens/fresh-energy",
+  "bugs": {
+    "url": "https://github.com/buschtoens/fresh-energy/issues"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "mysql2": "^1.1.2",
+    "request": "^2.79.0",
+    "request-promise-native": "^1.0.3"
+  }
+}
