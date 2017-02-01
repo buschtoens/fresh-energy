@@ -76,7 +76,7 @@ async function getMeterInstalledDate(api) {
 
   while (true) {
     const { readings, next } = await api.loadReadings(nextDate);
-    db.writeReadings(readings);
+    await db.writeReadings(readings);
     console.log({
       length: readings.length,
       current: nextDate,
