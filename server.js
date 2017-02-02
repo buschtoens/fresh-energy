@@ -76,16 +76,17 @@ async function getMeterInstalledDate(api) {
 
   while (true) {
     const { readings, next } = await api.loadReadings(nextDate);
-    await db.writeReadings(readings);
     console.log({
       length: readings.length,
       current: nextDate,
       next
     });
+    await db.writeReadings(readings);
     if (next) {
       nextDate = next;
-    }
-    if (readings.length < 60 * 30) {
+    } else if (Date.now() - nextDate >= 60 * 60 * 1000) {
+      nextDate.setUTCHours(nextDate.getUTCHours() + 1);
+    } else if (readings.length < 60 * 30) {
       await wait(5000);
     }
   }
